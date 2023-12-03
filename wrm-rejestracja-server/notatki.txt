@@ -1,0 +1,54 @@
+
+
+---------------------------------------------------------------------------------
+       NOTATKI
+
+// insert do bazy danych
+const doc = {
+    a: "a",
+    b: "b"
+};
+
+coll1.insert(doc, function (err, newDoc) {
+    console.log("dodano dokument (obiekt):")
+    console.log(newDoc)
+    console.log("unikalne id dokumentu: " + newDoc._id)
+});
+
+// usunięcie wszystkich dokumentów spełniających warunek
+coll1.remove({ a: "a1" }, { multi: true }, function (err, numRemoved) {
+    console.log("usunięto dokumentów: ", numRemoved)
+});
+
+// parser danych z formualrza metodą POST
+app.use(express.urlencoded({
+    extended: true
+}));
+
+// przesył danych JSON
+//res.header("content-type", "application/json")
+const options = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: {
+        "message": "suma dwu elementów",
+        "wynik": 300
+    }
+};
+fetch("/test", options)
+    .then(response => response.json()) // konwersja na obiekt json, jeśli konieczne
+    .then(data => alert(JSON.stringify(data, null, 5))) // sformatowane z wcięciami dane odpowiedzi z serwera
+    .catch(error => console.log(error));
+
+
+// GET
+app.get('/', (req, res) => {
+    console.log(req.query) // to jest obiekt z danymi pobranymi z paska adresu    
+    console.log(req.query.p1) // to jest jedno pole (właściwość) tego obiektu   
+    res.send("Hello World!") // odesłanie obiektu z danymi z powrotem do przeglądarki   
+    res.status(500).send("brak strony takiego produktu")
+});
+
+
