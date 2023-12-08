@@ -1,0 +1,56 @@
+<form (ngSubmit)="appointmentForm()">
+    <h2>Formularz Rejestracji - Wizyta</h2>
+
+    <label for="doctor" class="form-label">Wybór lekarza:</label>
+    <select id="doctor" class="form-control" name="doctor" required [(ngModel)]="appointment.doctor">
+        <option value="dr1">Dr. 1</option>
+        <option value="dr2">Dr. 2</option>
+        <option value="dr3">Dr. 3</option>
+        <option value="dr4">Dr. 4</option>
+    </select>
+
+    <label for="preferredDate" class="form-label">Preferowana data wizyty:</label>
+    <input type="date" class="form-control" id="preferredDate" name="preferredDate" required [(ngModel)]="appointment.preferredDate">
+
+    <label for="preferredHour" class="form-label">Preferowana godzina wizyty:</label>
+    <select id="preferredTime" class="form-control" name="preferredTime" required [(ngModel)]="appointment.preferredTime">
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="12:00">12:00</option>
+        <option value="12:30">12:30</option>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+        <option value="17:00">17:00</option>
+        <option value="17:30">17:30</option>
+        <option value="18:00">18:00</option>
+        <option value="18:30">18:30</option>
+        <option value="19:00">19:00</option>
+        <option value="19:30">19:30</option>
+        <option value="20:00">20:00</option>
+    </select>
+    
+    <label for="visitType" class="form-label">Rodzaj wizyty:</label>
+    <select id="visitType" class="form-control" name="visitType" required [(ngModel)]="appointment.visitType">
+        <option value="checkup">Kontrolna</option>
+        <option value="specialistVisit">Wizyta specjalistyczna</option>
+        <option value="vaccination">Szczepienie</option>
+    </select>
+
+    <label for="symptoms" class="form-label">Opis objawów lub celu wizyty:</label>
+    <textarea id="symptoms" class="form-control" name="symptoms" required [(ngModel)]="appointment.symptoms"></textarea>
+
+    <label for="nfz" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
+    <input class="form-check-control" type="checkbox" name="nfzVisit" value="nfzVisit" required [(ngModel)]="appointment.nfzVisit">
+
+    <button type="submit">Dalej</button>
+</form>
+
+<button (click)="goBack()">Wróć</button>

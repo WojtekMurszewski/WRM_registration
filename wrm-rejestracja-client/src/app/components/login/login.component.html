@@ -1,0 +1,29 @@
+<div class="container">
+    <button (click)="toggleForm()" class="btn btn-primary float-end">Zamień</button>
+  
+    <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
+      <h1>Użytkownik</h1>
+      <form (ngSubmit)="onClientLogin()">
+        <label for="username" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+  
+        <label for="password" class="form-label">Hasło:</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+  
+        <button type="submit">Zaloguj się</button>
+      </form>
+    </div>
+  
+    <div *ngIf="showWorkerForm" id="login-worker">
+      <h1>Pracownik</h1>
+      <form (ngSubmit)="onEmployeeLogin()">
+        <label for="username" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+  
+        <label for="password" class="form-label">Hasło:</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+  
+        <button type="submit">Zaloguj się</button>
+      </form>
+    </div>
+  </div>
