@@ -1,37 +1,41 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
 
 
 @Component({
     selector: 'app-appointment-form',
     standalone: true,
-    imports: [CommonModule, RouterLink, FormsModule],
+    imports: [CommonModule, ReactiveFormsModule, RouterLink],
     templateUrl: './appointment-form.component.html',
-    styleUrl: './appointment-form.component.scss'
+    styleUrls: ['./appointment-form.component.scss']
 })
-
-export class AppointmentFormComponent{
-
-    constructor(private router: Router) {}
-
-    appointment = {
-        doctor: '',
-        preferredDate: '',
-        preferredTime: '',
-        visitType: '',
-        symptoms: '',
-        nfzVisit: false
-    };
+export class AppointmentFormComponent {
+  
     
-    goBack() {
-        this.router.navigate(['/client-menu']);
-    }
+    appointmentForm: FormGroup;
 
-    appointmentForm() {
-        console.log(this.appointment);
+
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.appointmentForm = this.fb.group({
+      doctor: ['', Validators.required],
+      preferredDate: ['', Validators.required],
+      preferredTime: ['', Validators.required],
+      visitType: ['', Validators.required],
+      symptoms: ['', Validators.required],
+      nfzVisit: [false, Validators.required]
+    });
+  }
+
+  appointmentFormSubmit() {
+    if (this.appointmentForm.valid) {
         this.router.navigate(['/personal-data-form']);
-    }
+        console.log(this.appointmentForm.value);
+        }
+  }
+
+  goBack() {
+        this.router.navigate(['/client-menu']);
+  }
 }
