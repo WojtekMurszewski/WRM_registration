@@ -54,13 +54,26 @@ app.get('/remove-visit', (req, res) => {
 });
 
 // --> Obsługa logowania
-app.post("/login", function (req, res) {
-    console.log(req.body)
-    res.send("Pod tym adresem można zalogować się do systemu")
+app.get("/login", function (req, res) {
+    // const username = req.query.user.username;
+    // const password = req.query.user.password;
+    //
+    // console.log('Username:', username);
+    // console.log('Password:', password);
+    let username= 'Wojtek-M';
+    let password = "zaq1@WSX";
+    pacjenci.count({ username: username, password: password},  function (err, count) {
+        if(count === 1){
+            res.send(true);
+        }
+        else{
+            res.send(false);
+        }
+    });
 })
 
 app.get('/logout', (req, res) => {
-    console.log(req.query) 
+    // console.log(req.query)
     res.send("Pod tym adresem można wylogować się z systemu")
 });
 
