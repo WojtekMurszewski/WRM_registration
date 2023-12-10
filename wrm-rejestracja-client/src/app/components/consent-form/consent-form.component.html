@@ -1,0 +1,29 @@
+<form [formGroup]="consentForm" (ngSubmit)="consentFormSubmit()">
+    <h2>Formularz Zgód</h2>
+  
+    <label for="registrationType">Rodzaj rejestracji:</label>
+    <select id="registrationType" name="registrationType" formControlName="registrationType" required>
+        <option value="myself">Rejestruję siebie</option>
+        <option value="child">Rejestruję dziecko</option>
+        <option value="familyMember">Rejestruję innego członka rodziny</option>
+    </select>
+  
+    <input type="checkbox" id="marketingConsent" name="marketingConsent" formControlName="marketingConsent">
+    <label for="marketingConsent">Zgoda na otrzymywanie informacji marketingowych.</label>
+  
+    <input type="checkbox" id="personalDataConsent" name="personalDataConsent" formControlName="personalDataConsent">
+    <label for="personalDataConsent">Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę.</label>
+  
+    <label for="additionalInfoConsent">Zgoda na przetwarzanie dodatkowych informacji:</label>
+    <input type="checkbox" id="additionalInfoConsent" name="additionalInfoConsent" formControlName="additionalInfoConsent">
+  
+    <label for="emergencyContactConsent">Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby:</label>
+    <input type="checkbox" id="emergencyContactConsent" name="emergencyContactConsent" formControlName="emergencyContactConsent">
+  
+    <input type="checkbox" id="dataSharingConsent" name="dataSharingConsent" formControlName="dataSharingConsent">
+    <label for="dataSharingConsent">Zgoda na udostępnianie danych lekarzom i personelowi medycznemu.</label>
+  
+    <button type="submit" [disabled]="!consentForm.valid">Zapisz zgody</button>
+</form>
+
+<button (click)="goBack()">Wróć</button>

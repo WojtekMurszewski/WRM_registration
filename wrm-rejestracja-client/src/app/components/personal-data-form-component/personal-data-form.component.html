@@ -1,0 +1,31 @@
+<form [formGroup]="personalDataForm" (ngSubmit)="personalDataFormSubmit()">
+    <h2>Formularz Rejestracji - Dane Osobowe</h2>
+  
+    <label for="firstName" class="form-label">Imię:</label>
+    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+  
+    <label for="lastName" class="form-label">Nazwisko:</label>
+    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+  
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" class="form-control" id="email" formControlName="email">
+  
+    <label for="phoneNumber" class="form-label">Numer Telefonu:</label>
+    <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+  
+    <label for="city" class="form-label">Miasto:</label>
+    <input type="text" class="form-control" id="city" formControlName="city">
+
+    <label for="street" class="form-label">Ulica/Osiedle:</label>
+    <input type="text" class="form-control" id="street" formControlName="street">
+
+    <label for="house-number" class="form-label">Numer domu/mieszkania:</label>
+    <input type="text" class="form-control" id="houseNumber" formControlName="houseNumber">
+
+    <label for="zipcode" class="form-label">Kod pocztowy:</label>
+    <input type="text" class="form-control" id="zipcode" formControlName="zipcode">
+
+    <button type="submit" [disabled]="!personalDataForm.valid">Dalej</button>
+</form>
+
+<button (click)="goBack()">Wróć</button>
