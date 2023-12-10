@@ -16,7 +16,7 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
-    showClientForm = true;  
+    showClientForm = true;
     showWorkerForm = false;
     isClientLoggedIn = false
     isEmployeeLoggedIn = false;
@@ -25,25 +25,25 @@ export class LoginComponent {
     username: '',
     password: '',
     };
-  
+
     toggleForm() {
       this.showClientForm = !this.showClientForm;
       this.showWorkerForm = !this.showWorkerForm;
     }
-    
+
       onClientLogin() {
-   
+
         this.isClientLoggedIn = true;
         console.log(this.user);
         this.router.navigate(['/client-menu']);
-        
+
       }
 
       onEmployeeLogin() {
-  
+
         this.isEmployeeLoggedIn = true;
         console.log(this.user);
         this.router.navigate(['/employee-menu']);
       }
-      
+
 }

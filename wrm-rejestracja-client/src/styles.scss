@@ -1,5 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+:root {
+  --red-color: #BF0426;
+  --grey-color: #6380A6;
+  --light-blue-color: #0669BF;
+  --dark-blue-color: #044D8C;
+  --creame-color: #BF907E;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+}
 
 body {
-    background: -webkit-linear-gradient(left, #00c6ff, #3931af);
+    background-color: var(--grey-color);
 }
