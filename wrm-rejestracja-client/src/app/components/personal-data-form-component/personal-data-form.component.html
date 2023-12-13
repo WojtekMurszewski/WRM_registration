@@ -1,3 +1,4 @@
+<button (click)="goBack()" class="goBack">Wróć</button>
 <form [formGroup]="personalDataForm" (ngSubmit)="personalDataFormSubmit()">
     <h2>Formularz Rejestracji - Dane Osobowe</h2>
   
@@ -28,4 +29,3 @@
     <button type="submit" [disabled]="!personalDataForm.valid">Dalej</button>
 </form>
 
-<button (click)="goBack()">Wróć</button>

@@ -1,15 +1,20 @@
-button {
-    margin-top: 20px;
-    cursor: pointer;
-    background-color: #ccc;
-    color: #333;
+.container {
+  padding-top: 5%;
+  button {
+    width: 250px;
+    display: block;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 40px;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 1em;
-    transition: background-color 0.3s;
-  
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+
     &:hover {
-      background-color: #bbb;
+      opacity: 0.8;
     }
   }
+}

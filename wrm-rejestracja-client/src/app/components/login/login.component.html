@@ -1,29 +1,31 @@
 <div class="container">
-
+  <head><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></head>
+  <body>
     <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
-      <h1>Użytkownik</h1>
+      <h1>Zaloguj się do Portalu Pacjenta</h1>
       <form (ngSubmit)="onClientLogin()">
-        <label for="username" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
-
-        <label for="password" class="form-label">Hasło:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+        <label for="username" class="form-label">Identyfikator</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" placeholder="Wpisz id">
+        
+        <label for="password" class="form-label">Hasło</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" placeholder="Wpisz hasło">
 
         <button type="submit">Zaloguj się</button>
       </form>
     </div>
 
     <div *ngIf="showWorkerForm" id="login-worker">
-      <h1>Pracownik</h1>
+      <h1>Zaloguj się do Portalu Pracownika</h1>
       <form (ngSubmit)="onEmployeeLogin()">
-        <label for="username" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+        <label for="username" class="form-label">Identyfikator</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" placeholder="Wpisz id">
 
-        <label for="password" class="form-label">Hasło:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
+        <label for="password" class="form-label">Hasło</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" placeholder="Wpisz hasło">
 
         <button type="submit">Zaloguj się</button>
       </form>
     </div>
   <button (click)="toggleForm()" class="btn btn-primary change-button">Zamień typ konta</button>
-  </div>
+  </body>
+</div>
