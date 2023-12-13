@@ -1,4 +1,4 @@
-html{
+html {
   background-color: red;
 }
 .container {
@@ -14,11 +14,16 @@ html{
   #login-client,
   #login-worker {
     h1 {
+      font-size: 22px;
+      font-family: "Verdana", Arial, sans-serif;
+      font-weight: 500;
       text-align: center;
       color: black;
+      margin-bottom: 10px;
     }
 
     form {
+      margin-top: 20px;
       max-width: 400px;
       margin: 0 auto;
       padding: 20px;
@@ -42,12 +47,13 @@ html{
       }
 
       button {
+        margin-top: 20px;
         width: 100%;
         padding: 10px;
         background-color: var(--red-color);
         color: var(--white-color);
         border: none;
-        border-radius: 4px;
+        border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s;
 

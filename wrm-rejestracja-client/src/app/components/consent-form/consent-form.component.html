@@ -1,3 +1,4 @@
+<button (click)="goBack()" class="goBack">Wróć</button>
 <form [formGroup]="consentForm" (ngSubmit)="consentFormSubmit()">
     <h2>Formularz Zgód</h2>
   
@@ -8,22 +9,30 @@
         <option value="familyMember">Rejestruję innego członka rodziny</option>
     </select>
   
-    <input type="checkbox" id="marketingConsent" name="marketingConsent" formControlName="marketingConsent">
-    <label for="marketingConsent">Zgoda na otrzymywanie informacji marketingowych.</label>
-  
-    <input type="checkbox" id="personalDataConsent" name="personalDataConsent" formControlName="personalDataConsent">
-    <label for="personalDataConsent">Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę.</label>
-  
-    <label for="additionalInfoConsent">Zgoda na przetwarzanie dodatkowych informacji:</label>
-    <input type="checkbox" id="additionalInfoConsent" name="additionalInfoConsent" formControlName="additionalInfoConsent">
-  
-    <label for="emergencyContactConsent">Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby:</label>
-    <input type="checkbox" id="emergencyContactConsent" name="emergencyContactConsent" formControlName="emergencyContactConsent">
-  
-    <input type="checkbox" id="dataSharingConsent" name="dataSharingConsent" formControlName="dataSharingConsent">
-    <label for="dataSharingConsent">Zgoda na udostępnianie danych lekarzom i personelowi medycznemu.</label>
+    <div class="checkbox-wrapper">
+        <input type="checkbox" id="marketingConsent" name="marketingConsent" formControlName="marketingConsent" class="form-check-control" >
+        <label for="marketingConsent" class="form-check-label">Zgoda na otrzymywanie informacji marketingowych</label>
+    </div>
+    
+    <div class="checkbox-wrapper">
+        <input type="checkbox" id="personalDataConsent" name="personalDataConsent" formControlName="personalDataConsent" class="form-check-control" >
+        <label for="personalDataConsent" class="form-check-label">Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę</label>
+    </div>
+    
+    <div class="checkbox-wrapper">
+        <input type="checkbox" id="additionalInfoConsent" name="additionalInfoConsent" formControlName="additionalInfoConsent" class="form-check-control" >
+        <label for="additionalInfoConsent" class="form-check-label">Zgoda na przetwarzanie dodatkowych informacji</label>
+    </div>
+    
+    <div class="checkbox-wrapper">
+        <input type="checkbox" id="emergencyContactConsent" name="emergencyContactConsent" formControlName="emergencyContactConsent" class="form-check-control" >
+        <label for="emergencyContactConsent" class="form-check-label">Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby</label>
+    </div>
+    
+    <div class="checkbox-wrapper">
+        <input type="checkbox" id="dataSharingConsent" name="dataSharingConsent" formControlName="dataSharingConsent" class="form-check-control" >
+        <label for="dataSharingConsent" class="form-check-label">Zgoda na udostępnianie danych lekarzom i personelowi medycznemu</label>
+    </div>
   
     <button type="submit" [disabled]="!consentForm.valid">Zapisz zgody</button>
 </form>
-
-<button (click)="goBack()">Wróć</button>

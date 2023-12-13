@@ -1,5 +1,6 @@
+<button (click)="goBack()" class="goBack">Wróć</button>
 <form [formGroup]="appointmentForm" (ngSubmit)="appointmentFormSubmit()">
-    <h2>Formularz Rejestracji - Wizyta</h2>
+    <h1>Formularz Rejestracji - Wizyta</h1>
   
     <label for="doctor" class="form-label">Wybór lekarza:</label>
     <select id="doctor" class="form-control" formControlName="doctor">
@@ -48,11 +49,13 @@
     <label for="symptoms" class="form-label">Opis objawów lub celu wizyty:</label>
     <textarea id="symptoms" class="form-control" formControlName="symptoms"></textarea>
   
-    <label for="nfz" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
-    <input class="form-check-control" type="checkbox" formControlName="nfzVisit">
+    <div class="checkbox-wrapper">
+      <input class="form-check-control" type="checkbox" formControlName="nfzVisit">
+      <label for="nfz" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
+    </div>
   
     <button type="submit" [disabled]="!appointmentForm.valid">Dalej</button>
   </form>
   
-  <button (click)="goBack()">Wróć</button>
+
   
