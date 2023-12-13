@@ -36,12 +36,12 @@ app.post("/add-test", function (req, res) {
 })
 
 app.get('/get-test', (req, res) => {
-    console.log(req.query) 
+    console.log(req.query)
     res.send("Pod tym adresem można pobrać dane o rejestracji na badanie")
 });
 
 app.get('/remove-test', (req, res) => {
-    console.log(req.query) 
+    console.log(req.query)
     res.send("Pod tym adresem można usunąć rejestrację na badanie")
 });
 
@@ -52,12 +52,12 @@ app.post("/add-visit", function (req, res) {
 })
 
 app.get('/get-visit', (req, res) => {
-    console.log(req.query) 
+    console.log(req.query)
     res.send("Pod tym adresem można pobrać dane o rejestracji na wizytę")
 });
 
 app.get('/remove-visit', (req, res) => {
-    console.log(req.query) 
+    console.log(req.query)
     res.send("Pod tym adresem można usunąć rejestrację na wizytę")
 });
 
