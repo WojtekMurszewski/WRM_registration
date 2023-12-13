@@ -1,15 +1,19 @@
 <div class="container">
 
+<!--  TODO Wojtek -->
+  <!--  Element head is not allowed here -->
   <head><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></head>
+ <!--  Element body is not allowed here -->
   <body>
+<!-- Duplicate id references (username, password) -->
     <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
       <h1>Zaloguj się do Portalu Pacjenta</h1>
            <form [formGroup]="clientForm" (ngSubmit)="onClientLogin()">
         <label for="username" class="form-label">Identyfikator</label>
-        <input type="text" class="form-control" id="username" formControlName="username" [(ngModel)]="user.username" placeholder="Wpisz id">
-        
+        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Wpisz id">
+
         <label for="password" class="form-label">Hasło</label>
-        <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="user.password" placeholder="Wpisz hasło">
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Wpisz hasło">
         <button type="submit" [disabled]="!clientForm.valid" >Zaloguj się</button>
       </form>
   </div>
@@ -18,10 +22,10 @@
       <h1>Zaloguj się do Portalu Pracownika</h1>
        <form [formGroup]="workerForm" (ngSubmit)="onEmployeeLogin()">
         <label for="username" class="form-label">Identyfikator</label>
-        <input type="text" class="form-control" id="username" formControlName="username" [(ngModel)]="user.username" placeholder="Wpisz id">
+        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Wpisz id">
 
         <label for="password" class="form-label">Hasło</label>
-        <input type="password" class="form-control" id="password" formControlName="password" [(ngModel)]="user.password" placeholder="Wpisz hasło">
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Wpisz hasło">
 
           <button type="submit" [disabled]="!clientForm.valid">Zaloguj się</button>
       </form>
