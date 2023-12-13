@@ -1,29 +1,29 @@
 <div class="container">
+  <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
+      <h2>Użytkownik</h2>
+      <form [formGroup]="clientForm" (ngSubmit)="onClientLogin()">
+          <label for="username" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
 
-    <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
-      <h1>Użytkownik</h1>
-      <form (ngSubmit)="onClientLogin()">
-        <label for="username" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
+          <label for="password" class="form-label">Hasło:</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
 
-        <label for="password" class="form-label">Hasło:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
-
-        <button type="submit">Zaloguj się</button>
+          <button type="submit" [disabled]="!clientForm.valid">Zaloguj się</button>
       </form>
-    </div>
-
-    <div *ngIf="showWorkerForm" id="login-worker">
-      <h1>Pracownik</h1>
-      <form (ngSubmit)="onEmployeeLogin()">
-        <label for="username" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username">
-
-        <label for="password" class="form-label">Hasło:</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password">
-
-        <button type="submit">Zaloguj się</button>
-      </form>
-    </div>
-  <button (click)="toggleForm()" class="btn btn-primary change-button">Zamień typ konta</button>
   </div>
+
+  <div *ngIf="showWorkerForm" id="login-worker">
+      <h2>Pracownik</h2>
+      <form [formGroup]="workerForm" (ngSubmit)="onEmployeeLogin()">
+          <label for="username" class="form-label">ID:</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
+
+          <label for="password" class="form-label">Hasło:</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+
+          <button type="submit" [disabled]="!clientForm.valid">Zaloguj się</button>
+      </form>
+  </div>
+
+  <button (click)="toggleForm()" class="btn btn-primary change-button">Zamień typ konta</button>
+</div>
