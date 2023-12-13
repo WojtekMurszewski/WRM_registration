@@ -31,8 +31,17 @@ const pacjenci = new Datastore({
 
 // --> Obsługa rejestracji na badania
 app.post("/add-test", function (req, res) {
-    console.log(req.body)
-    res.send("Pod tym adresem można dodać nową rejestrację na badanie")
+    doc = req.body;
+    badania.insert(doc, function (err, newDoc) {
+        if (err) {
+            console.error("Błąd podczas zapisywania badania:", err);
+            res.send(err);
+        } else {
+            console.log("Dodano badanie: " + newDoc._id)
+            console.log(newDoc)
+            res.send("OK");
+        }
+    })
 })
 
 app.get('/get-test', (req, res) => {
@@ -40,15 +49,32 @@ app.get('/get-test', (req, res) => {
     res.send("Pod tym adresem można pobrać dane o rejestracji na badanie")
 });
 
-app.get('/remove-test', (req, res) => {
-    console.log(req.query)
-    res.send("Pod tym adresem można usunąć rejestrację na badanie")
+app.post('/remove-test', (req, res) => {
+    id = req.body.id
+    badania.remove({ _id:  id}, { multi: true }, function (err, numRemoved) {
+        if (err) {
+            console.error("Błąd podczas usuwania:", err);
+            res.send(false);
+        } else {
+            console.log("Usunięto wpisów: " + numRemoved);
+            res.send(JSON.stringify(numRemoved));
+        }
+    });
 });
 
 // --> Obsługa rejestracji na wizyty
 app.post("/add-visit", function (req, res) {
-    console.log(req.body)
-    res.send("Pod tym adresem można dodać nową rejestrację na wizytę")
+    doc = req.body
+    wizyty.insert(doc, function (err, newDoc) {
+        if (err) {
+            console.error("Błąd podczas zapisywania wizyty:", err);
+            res.send(err);
+        } else {
+            console.log("Dodano wizytę: " + newDoc._id)
+            console.log(newDoc)
+            res.send("OK");
+        }
+    })
 })
 
 app.get('/get-visit', (req, res) => {
@@ -56,9 +82,17 @@ app.get('/get-visit', (req, res) => {
     res.send("Pod tym adresem można pobrać dane o rejestracji na wizytę")
 });
 
-app.get('/remove-visit', (req, res) => {
-    console.log(req.query)
-    res.send("Pod tym adresem można usunąć rejestrację na wizytę")
+app.post('/remove-visit', (req, res) => {
+    id = req.body.id
+    wizyty.remove({ _id:  id}, { multi: true }, function (err, numRemoved) {
+        if (err) {
+            console.error("Błąd podczas usuwania:", err);
+            res.send(false);
+        } else {
+            console.log("Usunięto wpisów: " + numRemoved);
+            res.send(JSON.stringify(numRemoved));
+        }
+    });
 });
 
 // --> Obsługa logowania
