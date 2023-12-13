@@ -1,49 +1,66 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
+import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [CommonModule, RouterLink, FormsModule],
+    imports: [CommonModule, ReactiveFormsModule, RouterLink, HttpClientModule],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss'
 })
 
 export class LoginComponent {
+  showClientForm = true;
+  showWorkerForm = false;
+  isClientLoggedIn = false
+  isEmployeeLoggedIn = false;
+  clientForm: FormGroup;
+  workerForm: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+    this.clientForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
 
-    showClientForm = true;
-    showWorkerForm = false;
-    isClientLoggedIn = false
-    isEmployeeLoggedIn = false;
+    this.workerForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
-    user ={
-    username: '',
-    password: '',
-    };
+  onClientLogin() {
+    this.login(this.clientForm.value, '/client-menu');
+  }
 
-    toggleForm() {
-      this.showClientForm = !this.showClientForm;
-      this.showWorkerForm = !this.showWorkerForm;
-    }
+  onEmployeeLogin() {
+    this.login(this.workerForm.value, '/employee-menu');
+  }
 
-      onClientLogin() {
+  login(credentials: { username: string; password: string }, redirectRoute: string) {
+    const url = '/login';
+    const data = credentials;
 
-        this.isClientLoggedIn = true;
-        console.log(this.user);
-        this.router.navigate(['/client-menu']);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
+    this.http.post(url, data, { headers }).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.router.navigate([redirectRoute]);
+      },
+      (error: any) => {
+        console.error(error);
       }
+    );
+  }
 
-      onEmployeeLogin() {
-
-        this.isEmployeeLoggedIn = true;
-        console.log(this.user);
-        this.router.navigate(['/employee-menu']);
-      }
-
+  toggleForm() {
+    this.showClientForm = !this.showClientForm;
+    this.showWorkerForm = !this.showWorkerForm;
+  }
 }
