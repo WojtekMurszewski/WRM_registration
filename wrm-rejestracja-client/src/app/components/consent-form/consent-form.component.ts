@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { DataService } from '../../data.service';
 
 @Component({
     selector: 'app-consent-form',
@@ -16,7 +17,7 @@ export class ConsentFormComponent {
 
     consentForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) {
+    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
       this.consentForm = this.fb.group({
         registrationType: ['', Validators.required],
         marketingConsent: [false],
@@ -28,31 +29,34 @@ export class ConsentFormComponent {
     }
 
     consentFormSubmit() {
-      if (this.consentForm.valid) {
-          const urls = ['/add-visit', '/add-test']; 
-          const data = this.consentForm.value;
-
+        if (this.consentForm.valid) {
+          this.dataService.consentFormData = this.consentForm.value;
+          const combinedData = {
+            doctor: this.dataService.appointmentFormData,
+            patient: this.dataService.personalDataFormData,
+            consent: this.dataService.consentFormData,
+          };
+    
+          const url = 'http://localhost:3000/add-visit';
           const headers = new HttpHeaders({
-              'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
           });
-
-          urls.forEach(url => {
-              this.http.post(url, data, { headers }).subscribe(
-                  (response: any) => {
-                      console.log(response);
-                  },
-                  (error: any) => {
-                      console.error(error);
-                  }
-              );
-          });
-
-
-          //this.router.navigate(['/']); Jakiś end screen czy coś można by dodać?
+    
+          this.http.post(url, combinedData, { headers }).subscribe(
+            (response: any) => {
+              console.log(response);
+              this.dataService.resetData(); 
+              this.router.navigate(['/client-menu']);
+            },
+            (error: any) => {
+              console.error(error);
+            }
+          );
+        }
       }
-  }
 
     goBack() {
         this.router.navigate(['/personal-data-form']);
+        this.dataService.consentFormData = {};
     } 
 }

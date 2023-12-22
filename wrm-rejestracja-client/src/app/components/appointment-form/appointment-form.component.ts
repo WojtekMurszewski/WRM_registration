@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
+import { DataService } from '../../data.service';
 
 @Component({
     selector: 'app-appointment-form',
@@ -17,7 +18,7 @@ export class AppointmentFormComponent {
     appointmentForm: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
     this.appointmentForm = this.fb.group({
       doctor: ['', Validators.required],
       preferredDate: ['', Validators.required],
@@ -30,28 +31,13 @@ export class AppointmentFormComponent {
 
   appointmentFormSubmit() {
     if (this.appointmentForm.valid) {
-        const urls = ['/add-visit', '/add-test'];
-        const data = this.appointmentForm.value;
-
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-        });
-
-        urls.forEach(url => {
-            this.http.post(url, data, { headers }).subscribe(
-                (response: any) => {
-                    console.log(response);
-                    this.router.navigate(['/personal-data-form']);
-                },
-                (error: any) => {
-                    console.error(error);
-                }
-            );
-        });
+      this.dataService.appointmentFormData = this.appointmentForm.value;
+      this.router.navigate(['/personal-data-form']);
     }
   }
 
   goBack() {
         this.router.navigate(['/client-menu']);
+        this.dataService.appointmentFormData = {};
   }
 }

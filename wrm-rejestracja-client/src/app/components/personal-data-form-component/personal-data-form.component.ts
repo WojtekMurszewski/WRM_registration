@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
+import { DataService } from '../../data.service';
 
 @Component({
     selector: 'app-personal-data-form',
@@ -16,7 +17,7 @@ export class PersonalDataFormComponent {
 
     personalDataForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) {
+    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
         this.personalDataForm = this.fb.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -30,29 +31,14 @@ export class PersonalDataFormComponent {
     }
 
     personalDataFormSubmit() {
-        if (this.personalDataForm.valid) {
-          const urls = ['/add-visit', '/add-test'];
-          const data = this.personalDataForm.value;
-    
-          const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-          });
-    
-          urls.forEach(url => {
-            this.http.post(url, data, { headers }).subscribe(
-              (response: any) => {
-                console.log(response);
-                this.router.navigate(['/consent-form']);
-              },
-              (error: any) => {
-                console.error(error);
-              }
-            );
-          });
-        }
+      if (this.personalDataForm.valid) {
+        this.dataService.personalDataFormData = this.personalDataForm.value;
+        this.router.navigate(['/consent-form']);
       }
+    }
 
     goBack() {
-        this.router.navigate(['/app-appointment-form']);
+        this.router.navigate(['/appointment-form']);
+        this.dataService.personalDataFormData = {};
     }
 }
