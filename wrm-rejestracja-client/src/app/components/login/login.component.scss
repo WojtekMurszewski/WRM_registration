@@ -1,37 +1,64 @@
 html {
   background-color: red;
 }
-.container {
-  padding-top: 5%;
+.container-fluid {
+
+  .row{
+    height: 100vh;
+
+    .left-side{
+      background-color: #2063ee !important;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      img{
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .right-side{
+      padding-top: 12%;
+      background-color: var(--white-bg-color);
+    }
+  }
+
   .change-button {
-    background-color: var(--light-blue-color);
+    background-color: var(--white-bg-color);
+    color: var(--black-color);
+    border: none;
     width: 160px;
     display: block;
     margin: 0 auto;
     margin-top: 40px;
   }
 
+  .change-button:hover{
+    color: #063cc6;
+  }
+
   #login-client,
   #login-worker {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
     h1 {
       font-size: 22px;
       font-family: "Verdana", Arial, sans-serif;
       font-weight: 500;
       text-align: center;
       color: black;
-      margin-bottom: 10px;
+      margin-bottom: 4%;
     }
 
     form {
       margin-top: 20px;
-      max-width: 400px;
       margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: var(--white-color);
-      box-shadow: 0 4px 8px var(--black-color);
-
+      width: 60%;
+      display: flex;
+      flex-direction: column;
       label {
         display: block;
         margin-bottom: 5px;
@@ -42,15 +69,17 @@ html {
         padding: 8px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
-        border-radius: 4px;
+        border-radius: 8px;
         box-sizing: border-box;
+        background-color: #f3f3f3;
       }
 
       button {
+        width: 50%;
+        margin: 0 auto;
         margin-top: 20px;
-        width: 100%;
         padding: 10px;
-        background-color: var(--red-color);
+        background-color: #3b72f9;
         color: var(--white-color);
         border: none;
         border-radius: 20px;

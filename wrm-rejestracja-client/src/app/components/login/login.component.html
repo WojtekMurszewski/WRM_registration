@@ -1,11 +1,9 @@
-<div class="container">
-
-<!--  TODO Wojtek -->
-  <!--  Element head is not allowed here -->
-  <head><link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></head>
- <!--  Element body is not allowed here -->
-  <body>
-<!-- Duplicate id references (username, password) -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 left-side">
+      <img src="../../../assets/wallpaper.png" alt=""/>
+    </div>
+    <div class="col-md-7 right-side">
     <div *ngIf="showClientForm && !isClientLoggedIn" id="login-client">
       <h1>Zaloguj się do Portalu Pacjenta</h1>
            <form [formGroup]="clientForm" (ngSubmit)="onClientLogin()">
@@ -31,6 +29,6 @@
       </form>
     </div>
   <button (click)="toggleForm()" class="btn btn-primary change-button">Zamień typ konta</button>
-  </body>
-
+  </div>
+  </div>
 </div>

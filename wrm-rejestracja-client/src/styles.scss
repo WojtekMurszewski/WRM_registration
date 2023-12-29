@@ -2,20 +2,21 @@
 :root {
   --red-color: #BF0426;
   --grey-color: #6380A6;
-  --light-blue-color: #0669BF;
+  --light-blue-color: #3b72f9;
   --dark-blue-color: #044D8C;
   --creame-color: #BF907E;
   --white-color: #FFFFFF;
   --black-color: #000000;
+  --white-bg-color: #ffffff;
 }
 
 body {
-    background-color: var(--grey-color);
+    background-color: #f3f3f3;
 }
 button.goBack {
   cursor: pointer;
-  background-color: --light-blue-color;
-  color: --white-color;
+  background-color: var(--light-blue-color);
+  color: var(--white-color);
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -23,6 +24,6 @@ button.goBack {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: --light-blue-color;
+    background-color: var(--light-blue-color);
   }
 }
