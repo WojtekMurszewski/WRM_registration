@@ -15,8 +15,8 @@ body {
 }
 button.goBack {
   cursor: pointer;
-  background-color: --light-blue-color;
-  color: --white-color;
+  background-color: var(--light-blue-color);
+  color: var(--white-color);
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -24,6 +24,6 @@ button.goBack {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: --light-blue-color;
+    background-color: var(--light-blue-color);
   }
 }
