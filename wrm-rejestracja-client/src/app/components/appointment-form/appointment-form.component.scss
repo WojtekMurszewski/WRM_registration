@@ -1,81 +1,92 @@
-form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+html {
+  background-color: red;
+}
+.container-fluid {
+  .row{
+    height: 0vh;
 
+    .left-side{
+      background-color: var(--white-color) !important;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      img{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .right-side{
+      background-color: var(--white-color) !important;
+      padding-top: 10%;
+      padding-bottom: 10%;
+      img{
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .mx-auto{
+      background-color: var(--white-color) !important;
+    }
+      
+    }      
+  }
   .checkbox-wrapper {
     display: flex;
     justify-content: left;
     margin-top: 15px;
-
-    .form-check-control {
-      margin-right: 8px;
-    }
-    .form-check-label {
-      margin: 0;
-    }
+  }
+  .form-check-control {
+    margin-right: 8px;
+    padding: 8px 16px;
+    background-color: #3084bd;
   }
 
+  .form-check-label {
+    margin: 0;
+  }
   h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
   }
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-  }
-
-  select,
   input,
+  select,
   textarea {
-    padding: 10px;
+    padding: 8px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     box-sizing: border-box;
+    background-color: #f3f3f3;
   }
 
   textarea {
     resize: vertical;
   }
-
   button {
     width: 100%;
-    display: block;
-    background-color: var(--red-color);
-    color: var(--white-color);
     margin: 0 auto;
+    margin-top: 20px;
     padding: 10px;
-    margin-top: 40px;
+    background-color: #3b72f9;
+    color: var(--white-color);
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
+    transition: background-color 0.3s;
 
     &:hover {
       opacity: 0.8;
     }
   }
-
-  button:hover {
-    background-color: (--red-color);
-  }
-
   label.checkbox-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-
+    display: left;
+    
     input {
-      margin-right: 8px;
+      margin-right: 8px ;
     }
   }
-}
 
 button.goBack {
   margin-top: 10px;
@@ -92,6 +103,6 @@ button.goBack {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: --light-blue-color;
+    background-color: var(--light-blue-color);
   }
 }
