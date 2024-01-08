@@ -15,9 +15,12 @@ export class ClientMenuComponent{
 
     constructor(private router: Router) {}
 
-    toForm() {
-        this.router.navigate(['/appoinment-form']);
+    toVisitForm() {
+        this.router.navigate(['/appointment-form']);
     }
 
+    toTestForm() {
+        this.router.navigate(['/examination-form']);
+    }
 }
 

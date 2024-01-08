@@ -38,7 +38,13 @@ export class PersonalDataFormComponent {
     }
 
     goBack() {
+        if (this.dataService.appointmentFormData && Object.keys(this.dataService.appointmentFormData).length !== 0) {
         this.router.navigate(['/appointment-form']);
         this.dataService.personalDataFormData = {};
+        }
+        else if (this.dataService.examinationFormData && Object.keys(this.dataService.examinationFormData).length !== 0) {
+            this.router.navigate(['/examination-form']);
+            this.dataService.personalDataFormData = {};
+            }
     }
 }
