@@ -6,38 +6,37 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { DataService } from '../../data.service';
 
 @Component({
-    selector: 'app-appointment-form',
+    selector: 'app-examination-form',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, RouterLink, HttpClientModule],
-    templateUrl: './appointment-form.component.html',
-    styleUrls: ['./appointment-form.component.scss']
+    templateUrl: './examination-form.component.html',
+    styleUrls: ['./examination-form.component.scss']
 })
-export class AppointmentFormComponent {
+export class ExaminationmentFormComponent {
   
-
-    appointmentForm: FormGroup;
+    
+    examinationForm: FormGroup;
 
 
   constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
-    this.appointmentForm = this.fb.group({
-      doctor: ['', Validators.required],
+    this.examinationForm = this.fb.group({
+      testType: ['', Validators.required],
       preferredDate: ['', Validators.required],
       preferredTime: ['', Validators.required],
-      visitType: ['', Validators.required],
-      symptoms: ['', Validators.required],
-      nfzVisit: [false, Validators.required]
+      additionalInfo: ['', Validators.required],
+      nfzTest: [false, Validators.required]
     });
   }
 
-  appointmentFormSubmit() {
-    if (this.appointmentForm.valid) {
-      this.dataService.appointmentFormData = this.appointmentForm.value;
+  examinationFormSubmit() {
+    if (this.examinationForm.valid) {
+      this.dataService.examinationFormData = this.examinationForm.value;
       this.router.navigate(['/personal-data-form']);
     }
   }
 
   goBack() {
         this.router.navigate(['/client-menu']);
-        this.dataService.appointmentFormData = {};
+        this.dataService.examinationFormData = {};
   }
 }

@@ -41,7 +41,7 @@ export class LoginComponent {
   }
 
   login(credentials: { username: string; password: string }, redirectRoute: string) {
-    const url = 'localhost:3000/login';
+    const url = 'http://localhost:3000/login';
     const data = credentials;
 
     const headers = new HttpHeaders({

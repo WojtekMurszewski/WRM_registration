@@ -15,48 +15,60 @@ import { DataService } from '../../data.service';
 
 export class ConsentFormComponent {
 
-    consentForm: FormGroup;
+  consentForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
-      this.consentForm = this.fb.group({
-        registrationType: ['', Validators.required],
-        marketingConsent: [false],
-        personalDataConsent: [false],
-        additionalInfoConsent: [false],
-        emergencyContactConsent: [false],
-        dataSharingConsent: [false],
-      });
-    }
+  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
+    this.consentForm = this.fb.group({
+      registrationType: ['', Validators.required],
+      marketingConsent: [false],
+      personalDataConsent: [false],
+      additionalInfoConsent: [false],
+      emergencyContactConsent: [false],
+      dataSharingConsent: [false],
+    });
+  }
 
-    consentFormSubmit() {
-        if (this.consentForm.valid) {
-          this.dataService.consentFormData = this.consentForm.value;
-          const combinedData = {
-            doctor: this.dataService.appointmentFormData,
-            patient: this.dataService.personalDataFormData,
-            consent: this.dataService.consentFormData,
-          };
-    
-          const url = 'http://localhost:3000/add-visit';
-          const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-          });
-    
-          this.http.post(url, combinedData, { headers }).subscribe(
-            (response: any) => {
-              console.log(response);
-              this.dataService.resetData(); 
-              this.router.navigate(['/client-menu']);
-            },
-            (error: any) => {
-              console.error(error);
-            }
-          );
-        }
+  consentFormSubmit() {
+    if (this.consentForm.valid) {
+      this.dataService.consentFormData = this.consentForm.value;
+
+      let combinedData;
+      let url = "";
+
+      if (this.dataService.appointmentFormData && Object.keys(this.dataService.appointmentFormData).length !== 0)  {
+        combinedData = {
+          doctor: this.dataService.appointmentFormData,
+          patient: this.dataService.personalDataFormData,
+          consent: this.dataService.consentFormData,
+        };
+        url = 'http://localhost:3000/add-visit';
+      } else if (this.dataService.examinationFormData && Object.keys(this.dataService.examinationFormData).length !== 0) {
+        combinedData = {
+          testType: this.dataService.examinationFormData,
+          patient: this.dataService.personalDataFormData,
+          consent: this.dataService.consentFormData,
+        };
+        url = 'http://localhost:3000/add-test';
       }
 
-    goBack() {
-        this.router.navigate(['/personal-data-form']);
-        this.dataService.consentFormData = {};
-    } 
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+      });
+
+      this.http.post(url, combinedData, { headers, responseType: 'text' as 'text' }).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.dataService.resetData();
+          this.router.navigate(['/client-menu']);
+        },
+        (error: any) => {
+          console.error(error);
+        }); 
+    }
+  }
+
+  goBack() {
+      this.router.navigate(['/personal-data-form']);
+      this.dataService.consentFormData = {};
+  } 
 }
