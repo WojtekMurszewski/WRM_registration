@@ -1,0 +1,55 @@
+<div *ngIf="visits.length > 0">
+    <h2>Wizyty</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Lekarz</th>
+          <th>Preferowana data</th>
+          <th>Preferowana godzina</th>
+          <th>Typ wizyty</th>
+          <th>Objawy</th>
+          <th>Imię (Pacjent)</th>
+          <th>Nazwisko (Pacjent)</th>
+          <th>Email</th>
+          <th>Numer telefonu</th>
+          <th>Miasto</th>
+          <th>Ulica</th>
+          <th>Numer domu</th>
+          <th>Kod pocztowy</th>
+          <th>Rodzaj rejestracji</th>
+          <th>Zgoda na marketing</th>
+          <th>Zgoda na dane osobowe</th>
+          <th>Zgoda na dodatkowe informacje</th>
+          <th>Zgoda na kontakt w nagłych przypadkach</th>
+          <th>Zgoda na udostępnianie danych</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let visit of visits">
+          <td>{{ visit.doctor.doctor }}</td>
+          <td>{{ visit.doctor.preferredDate }}</td>
+          <td>{{ visit.doctor.preferredTime }}</td>
+          <td>{{ visit.doctor.visitType }}</td>
+          <td>{{ visit.doctor.symptoms }}</td>
+          <td>{{ visit.patient.firstName }}</td>
+          <td>{{ visit.patient.lastName }}</td>
+          <td>{{ visit.patient.email }}</td>
+          <td>{{ visit.patient.phoneNumber }}</td>
+          <td>{{ visit.patient.city }}</td>
+          <td>{{ visit.patient.street }}</td>
+          <td>{{ visit.patient.houseNumber }}</td>
+          <td>{{ visit.patient.zipcode }}</td>
+          <td>{{ visit.consent.registrationType }}</td>
+          <td>{{ visit.consent.marketingConsent }}</td>
+          <td>{{ visit.consent.personalDataConsent }}</td>
+          <td>{{ visit.consent.additionalInfoConsent }}</td>
+          <td>{{ visit.consent.emergencyContactConsent }}</td>
+          <td>{{ visit.consent.dataSharingConsent }}</td>
+          <td>
+            <button (click)="removeVisit(visit._id)">Usuń</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

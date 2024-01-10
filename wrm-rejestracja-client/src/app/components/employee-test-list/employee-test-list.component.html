@@ -1,0 +1,54 @@
+<div *ngIf="tests.length > 0">
+    <h2>Badania</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Typ badania</th>
+          <th>Preferowana data</th>
+          <th>Preferowana godzina</th>
+          <th>Dodatkowe informacje</th>
+          <th>Imię (Pacjent)</th>
+          <th>Nazwisko (Pacjent)</th>
+          <th>Email</th>
+          <th>Numer telefonu</th>
+          <th>Miasto</th>
+          <th>Ulica</th>
+          <th>Numer domu</th>
+          <th>Kod pocztowy</th>
+          <th>Rodzaj rejestracji</th>
+          <th>Zgoda na marketing</th>
+          <th>Zgoda na dane osobowe</th>
+          <th>Zgoda na dodatkowe informacje</th>
+          <th>Zgoda na kontakt w nagłych przypadkach</th>
+          <th>Zgoda na udostępnianie danych</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of tests">
+          <td>{{ test.testType.testType }}</td>
+          <td>{{ test.testType.preferredDate }}</td>
+          <td>{{ test.testType.preferredTime }}</td>
+          <td>{{ test.testType.additionalInfo }}</td>
+          <td>{{ test.patient.firstName }}</td>
+          <td>{{ test.patient.lastName }}</td>
+          <td>{{ test.patient.email }}</td>
+          <td>{{ test.patient.phoneNumber }}</td>
+          <td>{{ test.patient.city }}</td>
+          <td>{{ test.patient.street }}</td>
+          <td>{{ test.patient.houseNumber }}</td>
+          <td>{{ test.patient.zipcode }}</td>
+          <td>{{ test.consent.registrationType }}</td>
+          <td>{{ test.consent.marketingConsent }}</td>
+          <td>{{ test.consent.personalDataConsent }}</td>
+          <td>{{ test.consent.additionalInfoConsent }}</td>
+          <td>{{ test.consent.emergencyContactConsent }}</td>
+          <td>{{ test.consent.dataSharingConsent }}</td>
+          <td>
+            <button (click)="removeTest(test._id)">Usuń</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
