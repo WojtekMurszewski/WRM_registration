@@ -1,10 +1,14 @@
-html {
-  background-color: red;
-}
 .container-fluid {
+  height: 100%;
   .row{
     height: 0vh;
-
+    h1{
+      font-size: 22px;
+    }
+    form{
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
     .left-side{
       background-color: var(--white-color) !important;
       padding-top: 10%;
@@ -28,8 +32,8 @@ html {
     .mx-auto{
       background-color: var(--white-color) !important;
     }
-      
-    }      
+
+    }
   }
   .checkbox-wrapper {
     display: flex;
@@ -64,8 +68,12 @@ html {
   textarea {
     resize: vertical;
   }
+
+  .buttons{
+    text-align: center;
+  }
   button {
-    width: 100%;
+    width: 200px;
     margin: 0 auto;
     margin-top: 20px;
     padding: 10px;
@@ -82,7 +90,7 @@ html {
   }
   label.checkbox-label {
     display: left;
-    
+
     input {
       margin-right: 8px ;
     }

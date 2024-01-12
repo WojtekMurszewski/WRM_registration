@@ -1,14 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 mx-auto">
-      <button (click)="toVisitForm()">Umów wizytę</button>
-    </div>
+    <h1>PANEL PACJENTA</h1>
   </div>
-</div>
-<div class="container">
   <div class="row">
-    <div class="col-md-4 mx-auto">
-      <button (click)="toTestForm()">Umów badanie</button>
+    <div class="col-md-6 mx-auto">
+      <button id="left" (click)="toVisitForm()">Umów wizytę</button>
+    </div>
+    <div class="col-md-6 mx-auto" >
+      <button id="right" (click)="toTestForm()">Umów badanie</button>
     </div>
   </div>
 </div>

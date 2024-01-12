@@ -1,12 +1,14 @@
-<button (click)="goBack()" class="goBack">Wróć</button>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 left-side"><img src="../../../assets/Appointment 2.avif" alt="Appointment 1"/></div>
-    
+    <div class="col-md-12">
+      <button (click)="goBack()" class="goBack">Wróć</button>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4 mx-auto">
       <form [formGroup]="appointmentForm" (ngSubmit)="appointmentFormSubmit()">
           <h2>Formularz Rejestracji - Wizyta</h2>
-        
+
           <label for="doctor" class="form-label">Wybór lekarza:</label>
           <select id="doctor" class="form-control" formControlName="doctor">
             <option value="dr1">Dr. 1</option>
@@ -14,10 +16,10 @@
             <option value="dr3">Dr. 3</option>
             <option value="dr4">Dr. 4</option>
           </select>
-        
+
           <label for="preferredDate" class="form-label">Preferowana data wizyty:</label>
           <input type="date" class="form-control" id="preferredDate" formControlName="preferredDate">
-        
+
           <label for="preferredTime" class="form-label">Preferowana godzina wizyty:</label>
           <select id="preferredTime" class="form-control" formControlName="preferredTime">
               <option value="10:00">10:00</option>
@@ -42,25 +44,26 @@
               <option value="19:30">19:30</option>
               <option value="20:00">20:00</option>
                 </select>
-        
+
           <label for="visitType" class="form-label">Rodzaj wizyty:</label>
           <select id="visitType" class="form-control" formControlName="visitType">
               <option value="checkup">Kontrolna</option>
               <option value="specialistVisit">Wizyta specjalistyczna</option>
               <option value="vaccination">Szczepienie</option>
           </select>
-        
+
           <label for="symptoms" class="form-label">Opis objawów lub celu wizyty:</label>
           <textarea id="symptoms" class="form-control" formControlName="symptoms"></textarea>
-        
+
           <div class="checkbox-wrapper">
             <input class="form-check-control" type="checkbox" formControlName="nfzVisit">
-            <label for="nfz" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
+            <label for="nfzVisit" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
           </div>
-        
-          <button type="submit" [disabled]="!appointmentForm.valid">Dalej</button>
-        </form>  
+
+          <div class="buttons">
+            <button type="submit" [disabled]="!appointmentForm.valid">Dalej</button>
+          </div>
+        </form>
       </div>
-    <div class="col-md-4 right-side"><img src="../../../assets/appointment1.avif" alt="Appointment 1"/></div>
   </div>
 </div>
