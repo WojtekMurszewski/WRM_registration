@@ -20,25 +20,30 @@
                 </div>
                 
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" id="personalDataConsent" name="personalDataConsent" formControlName="personalDataConsent" class="form-check-control" >
-                    <label for="personalDataConsent" class="form-check-label">Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę</label>
-                </div>
-                
-                <div class="checkbox-wrapper">
                     <input type="checkbox" id="additionalInfoConsent" name="additionalInfoConsent" formControlName="additionalInfoConsent" class="form-check-control" >
                     <label for="additionalInfoConsent" class="form-check-label">Zgoda na przetwarzanie dodatkowych informacji</label>
                 </div>
+
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="personalDataConsent" name="personalDataConsent" formControlName="personalDataConsent" class="form-check-control" >
+                    <label for="personalDataConsent" class="form-check-label">* Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę </label>
+                </div>
+                
                 
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="emergencyContactConsent" name="emergencyContactConsent" formControlName="emergencyContactConsent" class="form-check-control" >
-                    <label for="emergencyContactConsent" class="form-check-label">Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby</label>
+                    <label for="emergencyContactConsent" class="form-check-label">* Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby</label>
                 </div>
                 
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="dataSharingConsent" name="dataSharingConsent" formControlName="dataSharingConsent" class="form-check-control" >
-                    <label for="dataSharingConsent" class="form-check-label">Zgoda na udostępnianie danych lekarzom i personelowi medycznemu</label>
+                    <label for="dataSharingConsent" class="form-check-label">* Zgoda na udostępnianie danych lekarzom i personelowi medycznemu</label>
                 </div>
             
+                <div>
+                    * Pole wymagane
+                </div>
+
                 <button type="submit" [disabled]="!consentForm.valid">Zapisz zgody</button>
             </form>
         </div>

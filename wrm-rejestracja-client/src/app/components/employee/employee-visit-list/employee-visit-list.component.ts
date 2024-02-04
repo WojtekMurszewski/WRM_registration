@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-employee-visit-list',
     standalone: true,
-    imports: [CommonModule, HttpClientModule],
+    imports: [CommonModule, HttpClientModule, RouterLink],
     templateUrl: './employee-visit-list.component.html',
     styleUrl: './employee-visit-list.component.scss'
 })
 
 export class EmployeeVisitListComponent implements OnInit {
     visits: any[] = [];
+    selectedVisit: any;
   
     private url = 'http://localhost:3000'; 
   
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
   
     ngOnInit() {
       this.loadData();
@@ -42,5 +44,13 @@ export class EmployeeVisitListComponent implements OnInit {
             console.error(error);
           }
         );
-      }
+    }
+
+    viewVisit(visitId: string) {
+      this.router.navigate(['/visit-view', visitId]); 
+    }
+
+    goBack() {
+      this.router.navigate(['/employee-menu']);
+  }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { DataService } from '../../data.service';
+import { DataService } from '../../../data.service';
 
 @Component({
     selector: 'app-consent-form',
@@ -21,10 +21,10 @@ export class ConsentFormComponent {
     this.consentForm = this.fb.group({
       registrationType: ['', Validators.required],
       marketingConsent: [false],
-      personalDataConsent: [false],
       additionalInfoConsent: [false],
-      emergencyContactConsent: [false],
-      dataSharingConsent: [false],
+      personalDataConsent: [false, Validators.required],
+      emergencyContactConsent: [false, Validators.required],
+      dataSharingConsent: [false, Validators.required],
     });
   }
 

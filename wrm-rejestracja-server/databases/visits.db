@@ -1,7 +1,1 @@
-{"username":"test","password":"test","_id":"75fUyBkjiTw2WuTh"}
-{"username":"test","password":"test","_id":"AUbwk42ryWbQwfqg"}
-{"username":"test","password":"test","_id":"JBwAO8GfIvFWckDD"}
-{"username":"test","password":"test","_id":"M4zZnsMIGKkuojfP"}
-{"username":"test","password":"test","_id":"eclOChB1646eak2b"}
-{"a":"a","b":"b","_id":"sLp1wVvl8pR6oP7P"}
-{"username":"test","password":"test","_id":"xo1XDkBqViYPDEnx"}
+{"doctor":{"doctor":"dr1","preferredDate":"2024-02-04","preferredTime":"10:00","visitType":"specialistVisit","symptoms":"Wysoka temperatura, wymioty","nfzVisit":false},"patient":{"firstName":"Jan","lastName":"Kowalski","email":"user@example.com","phoneNumber":"64302476","city":"Kraków","street":"Kwadratowa","houseNumber":"21","zipcode":"11-001"},"consent":{"registrationType":"myself","marketingConsent":false,"additionalInfoConsent":true,"personalDataConsent":false,"emergencyContactConsent":false,"dataSharingConsent":false},"_id":"7kVbunNBLhkfMieM"}

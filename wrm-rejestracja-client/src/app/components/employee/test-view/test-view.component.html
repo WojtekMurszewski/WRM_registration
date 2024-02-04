@@ -1,0 +1,96 @@
+<button (click)="goBack()" class="goBack">Wróć</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <form [formGroup]="testForm">
+        <h2>Szczegóły wizyty</h2>
+
+        <div formGroupName="testType">
+          <h2>Formularz Rejestracji - Badanie</h2>
+
+          <label for="testType" class="form-label">Rodzaj badania:</label>
+          <input type="text" class="form-control" id="testType" formControlName="testType" [readonly]="true">
+
+          <label for="preferredDate" class="form-label">Preferowana data wizyty:</label>
+          <input type="text" class="form-control" id="preferredDate" formControlName="preferredDate" [readonly]="true">
+
+          <label for="preferredTime" class="form-label">Preferowana godzina wizyty:</label>
+          <input type="text" class="form-control" id="preferredTime" formControlName="preferredTime" [readonly]="true">
+
+          <label for="additionalInfo" class="form-label">Dodatkowe informacje:</label>
+          <textarea id="additionalInfo" class="form-control" formControlName="additionalInfo" [readonly]="true"></textarea>
+
+          <div class="checkbox-wrapper">
+            <input class="form-check-control" type="checkbox" formControlName="nfzTest" [readonly]="true">
+            <label for="nfzTest" class="form-check-label">Czy wizyta ma być realizowana na NFZ?</label>
+          </div>
+        </div>
+
+        <div formGroupName="patient">
+          <h2>Formularz Rejestracji - Dane Osobowe</h2>
+
+          <label for="firstName" class="form-label">Imię:</label>
+          <input type="text" class="form-control" id="firstName" formControlName="firstName" [readonly]="true">
+            
+          <label for="lastName" class="form-label">Nazwisko:</label>
+          <input type="text" class="form-control" id="lastName" formControlName="lastName" [readonly]="true">
+            
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" formControlName="email" [readonly]="true">
+            
+          <label for="phoneNumber" class="form-label">Numer Telefonu:</label>
+          <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber" [readonly]="true">
+            
+          <label for="city" class="form-label">Miasto:</label>
+          <input type="text" class="form-control" id="city" formControlName="city" [readonly]="true">
+
+         <label for="street" class="form-label">Ulica/Osiedle:</label>
+         <input type="text" class="form-control" id="street" formControlName="street" [readonly]="true">
+
+          <label for="house-number" class="form-label">Numer domu/mieszkania:</label>
+          <input type="text" class="form-control" id="houseNumber" formControlName="houseNumber" [readonly]="true">
+
+          <label for="zipcode" class="form-label">Kod pocztowy:</label>
+          <input type="text" class="form-control" id="zipcode" formControlName="zipcode" [readonly]="true">
+        </div>
+
+        <div formGroupName="consent">
+          <h2>Formularz Zgód</h2>
+
+          <label for="registrationType" class="form-label">Rodzaj rejestracji:</label>
+          <input type="text" class="form-control" id="registrationType" formControlName="registrationType" [readonly]="true">
+          
+          <div class="checkbox-wrapper">
+            <input class="form-check-control" type="checkbox" formControlName="marketingConsent">
+            <label for="marketingConsent" class="form-check-label">Zgoda na otrzymywanie informacji marketingowych</label>
+          </div>  
+          
+          <div class="checkbox-wrapper">
+            <input class="form-check-control" type="checkbox" formControlName="additionalInfoConsent" class="form-check-control" [readonly]="true">
+            <label for="additionalInfoConsent" class="form-check-label">Zgoda na przetwarzanie dodatkowych informacji</label>
+          </div>  
+
+          <div class="checkbox-wrapper">
+            <input class="form-check-control" type="checkbox" formControlName="personalDataConsent" class="form-check-control" [readonly]="true">
+            <label for="personalDataConsent" class="form-check-label">* Zgoda na przetwarzanie danych osobowych w celu rejestracji na wizytę </label>
+          </div>  
+
+          <div class="checkbox-wrapper">     
+            <input class="form-check-control" type="checkbox" formControlName="emergencyContactConsent" class="form-check-control" [readonly]="true">
+            <label for="emergencyContactConsent" class="form-check-label">* Zgoda na kontaktowanie się z osobą do kontaktu w przypadku nagłej potrzeby</label>
+          </div>  
+
+          <div class="checkbox-wrapper">
+            <input class="form-check-control" type="checkbox" formControlName="dataSharingConsent" class="form-check-control" [readonly]="true">
+            <label for="dataSharingConsent" class="form-check-label">* Zgoda na udostępnianie danych lekarzom i personelowi medycznemu</label>
+          </div>
+
+          <div>
+            * Pole wymagane
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

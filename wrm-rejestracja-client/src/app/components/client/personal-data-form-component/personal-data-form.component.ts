@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
-import { DataService } from '../../data.service';
+import { DataService } from '../../../data.service';
 
 @Component({
     selector: 'app-personal-data-form',

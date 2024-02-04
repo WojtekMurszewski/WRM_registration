@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
-import { DataService } from '../../data.service';
+import { DataService } from '../../../data.service';
 
 @Component({
     selector: 'app-examination-form',

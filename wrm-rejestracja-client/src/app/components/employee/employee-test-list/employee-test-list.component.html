@@ -1,12 +1,15 @@
+<button (click)="goBack()" class="goBack">Wróć</button>
 <div *ngIf="tests.length > 0">
     <h2>Badania</h2>
     <table>
       <thead>
         <tr>
+          <th>Podgląd</th>
           <th>Typ badania</th>
           <th>Preferowana data</th>
           <th>Preferowana godzina</th>
           <th>Dodatkowe informacje</th>
+          <th>Badanie na NFZ</th>
           <th>Imię (Pacjent)</th>
           <th>Nazwisko (Pacjent)</th>
           <th>Email</th>
@@ -26,10 +29,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let test of tests">
+          <td>
+            <button (click)="viewTest(test._id)">Podgląd</button>
+          </td>
           <td>{{ test.testType.testType }}</td>
           <td>{{ test.testType.preferredDate }}</td>
           <td>{{ test.testType.preferredTime }}</td>
           <td>{{ test.testType.additionalInfo }}</td>
+          <td>{{ test.testType.nfzTest }}</td>
           <td>{{ test.patient.firstName }}</td>
           <td>{{ test.patient.lastName }}</td>
           <td>{{ test.patient.email }}</td>
