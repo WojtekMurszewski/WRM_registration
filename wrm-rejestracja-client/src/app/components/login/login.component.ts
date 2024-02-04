@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../../auth.service';
 
 @Component({
     selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
   clientForm: FormGroup;
   workerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) {
     this.clientForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -33,14 +34,19 @@ export class LoginComponent {
   }
 
   onClientLogin() {
-    this.login(this.clientForm.value, '/client-menu');
+    this.login(this.clientForm.value, '/client-menu', 'client');
   }
 
   onEmployeeLogin() {
-    this.login(this.workerForm.value, '/employee-menu');
+    this.login(this.workerForm.value, '/employee-menu', 'employee');
   }
 
-  login(credentials: { username: string; password: string }, redirectRoute: string) {
+  toggleForm() {
+    this.showClientForm = !this.showClientForm;
+    this.showWorkerForm = !this.showWorkerForm;
+  }
+
+  login(credentials: { username: string; password: string }, redirectRoute: string, userType: string) {
     const url = 'http://localhost:3000/login';
     const data = credentials;
 
@@ -51,16 +57,18 @@ export class LoginComponent {
     this.http.post(url, data, { headers }).subscribe(
       (response: any) => {
         console.log(response);
+
+        if (userType === 'client') {
+          this.authService.clientLogin();
+        } else if (userType === 'employee') {
+          this.authService.employeeLogin();
+        }
+
         this.router.navigate([redirectRoute]);
       },
       (error: any) => {
         console.error(error);
       }
     );
-  }
-
-  toggleForm() {
-    this.showClientForm = !this.showClientForm;
-    this.showWorkerForm = !this.showWorkerForm;
   }
 }

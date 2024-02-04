@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../auth.service';
 
 @Component({
     selector: 'app-employee-menu',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class EmployeeMenuComponent {
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private authService: AuthService) {}
 
     toVisitList() {
         this.router.navigate(['/employee-visit-list']);
@@ -20,5 +21,9 @@ export class EmployeeMenuComponent {
 
     toTestList() {
         this.router.navigate(['/employee-test-list']);
+    }
+
+    logout() {
+        this.authService.logout();
     }
   }

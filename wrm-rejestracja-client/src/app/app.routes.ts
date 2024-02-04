@@ -10,17 +10,19 @@ import { EmployeeTestVisitComponent } from './components/employee/employee-test-
 import { EmployeeVisitListComponent } from './components/employee/employee-visit-list/employee-visit-list.component';
 import { VisitViewComponent } from './components/employee/visit-view/visit-view.component';
 import { TestViewComponent } from './components/employee/test-view/test-view.component';
+import { ClientAuthGuard, EmployeeAuthGuard } from './auth.guard';
+
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
-    {path: 'client-menu', component: ClientMenuComponent},
-    {path: 'employee-menu', component: EmployeeMenuComponent},
-    {path: 'appointment-form', component: AppointmentFormComponent},
-    {path: 'personal-data-form', component: PersonalDataFormComponent},
-    {path: 'consent-form', component: ConsentFormComponent},
-    {path: 'examination-form', component: ExaminationmentFormComponent},
-    {path: 'employee-test-list', component: EmployeeTestVisitComponent},
-    {path: 'employee-visit-list', component: EmployeeVisitListComponent},
-    {path: 'visit-view/:visitId', component: VisitViewComponent},
-    {path: 'test-view/:visitId', component: TestViewComponent},
+    { path: 'client-menu', component: ClientMenuComponent, canActivate: [ClientAuthGuard] },
+    { path: 'employee-menu', component: EmployeeMenuComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'appointment-form', component: AppointmentFormComponent, canActivate: [ClientAuthGuard]},
+    {path: 'personal-data-form', component: PersonalDataFormComponent, canActivate: [ClientAuthGuard]},
+    {path: 'consent-form', component: ConsentFormComponent, canActivate: [ClientAuthGuard]},
+    {path: 'examination-form', component: ExaminationmentFormComponent, canActivate: [ClientAuthGuard]},
+    {path: 'employee-test-list', component: EmployeeTestVisitComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'employee-visit-list', component: EmployeeVisitListComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'visit-view/:visitId', component: VisitViewComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'test-view/:visitId', component: TestViewComponent, canActivate: [EmployeeAuthGuard]},
 ];
