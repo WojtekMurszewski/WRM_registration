@@ -28,6 +28,11 @@ const pacjenci = new Datastore({
     autoload: true
 });
 
+const pracownicy = new Datastore({
+    filename: 'databases/employees.db',
+    autoload: true
+});
+
 // --------------------------------> BADANIA <------------------------------------------
 // Dodanie rejestracji na badanie
 app.post("/add-test", function (req, res) {
@@ -105,8 +110,19 @@ app.post('/remove-visit', (req, res) => {
 
 // --------------------------------> LOGOWANIE <------------------------------------------
 // Sprawdzanie czy dane konto istnieje
-app.post("/login", function (req, res) {
+app.post("/patient-login", function (req, res) {
     pacjenci.count({ username: req.body.username, password: req.body.password},  function (err, count) {
+        if(count === 1){
+            res.send(true);
+        }
+        else{
+            res.send(false);
+        }
+    });
+})
+
+app.post("/employee-login", function (req, res) {
+    pracownicy.count({ username: req.body.username, password: req.body.password},  function (err, count) {
         if(count === 1){
             res.send(true);
         }
