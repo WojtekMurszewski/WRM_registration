@@ -47,23 +47,32 @@ export class LoginComponent {
   }
 
   login(credentials: { username: string; password: string }, redirectRoute: string, userType: string) {
-    const url = 'http://localhost:3000/login';
+    let url = '';
+  
+    if (this.showClientForm) {
+      url = 'http://localhost:3000/patient-login';
+      console.log('Logowanie klienta');
+    } else if (this.showWorkerForm) {
+      url = 'http://localhost:3000/employee-login';
+      console.log('Logowanie pracownika');
+    }
+  
     const data = credentials;
-
+  
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
+  
     this.http.post(url, data, { headers }).subscribe(
       (response: any) => {
         console.log(response);
-
+  
         if (userType === 'client') {
           this.authService.clientLogin();
         } else if (userType === 'employee') {
           this.authService.employeeLogin();
         }
-
+  
         this.router.navigate([redirectRoute]);
       },
       (error: any) => {
@@ -71,4 +80,5 @@ export class LoginComponent {
       }
     );
   }
+  
 }
