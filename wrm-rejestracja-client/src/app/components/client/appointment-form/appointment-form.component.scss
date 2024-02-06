@@ -101,7 +101,7 @@ button.goBack {
   margin-left: 10px;
   width: 120px;
   cursor: pointer;
-  background-color: var(--light-blue-color);
+  background-color: var(--dark-blue-color);
   color: var(--white-color);
   border: none;
   padding: 10px 15px;
@@ -111,6 +111,6 @@ button.goBack {
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: var(--light-blue-color);
+    opacity: 0.9;
   }
 }

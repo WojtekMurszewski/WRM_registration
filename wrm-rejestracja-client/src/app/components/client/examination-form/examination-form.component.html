@@ -1,49 +1,61 @@
 <button (click)="goBack()" class="goBack">Wróć</button>
-<form [formGroup]="examinationForm" (ngSubmit)="examinationFormSubmit()">
-    <h1>Formularz Rejestracji - Badanie</h1>
-  
-    <label for="testType" class="form-label">Rodzaj badania:</label>
-    <select id="testType" class="form-control" formControlName="testType">
-        <option value="bloodTest">Badanie krwi</option>
-        <option value="urineTest">Badanie moczu</option>
-        <option value="xRay">Rentgen</option>
-    </select>
-  
-    <label for="preferredDate" class="form-label">Preferowana data badania:</label>
-    <input type="date" class="form-control" id="preferredDate" formControlName="preferredDate">
-  
-    <label for="preferredTime" class="form-label">Preferowana godzina badania:</label>
-    <select id="preferredTime" class="form-control" formControlName="preferredTime">
-        <option value="10:00">10:00</option>
-        <option value="10:30">10:30</option>
-        <option value="11:00">11:00</option>
-        <option value="11:30">11:30</option>
-        <option value="12:00">12:00</option>
-        <option value="12:30">12:30</option>
-        <option value="13:00">13:00</option>
-        <option value="13:30">13:30</option>
-        <option value="14:00">14:00</option>
-        <option value="14:30">14:30</option>
-        <option value="15:00">15:00</option>
-        <option value="15:30">15:30</option>
-        <option value="16:00">16:00</option>
-        <option value="16:30">16:30</option>
-        <option value="17:00">17:00</option>
-        <option value="17:30">17:30</option>
-        <option value="18:00">18:00</option>
-        <option value="18:30">18:30</option>
-        <option value="19:00">19:00</option>
-        <option value="19:30">19:30</option>
-        <option value="20:00">20:00</option>
-    </select>
-  
-    <label for="additionalInfo" class="form-label">Dodatkowe informacje:</label>
-    <textarea id="additionalInfo" class="form-control" formControlName="additionalInfo"></textarea>
-  
-    <div class="checkbox-wrapper">
-      <input class="form-check-control" type="checkbox" formControlName="nfzTest">
-      <label for="nfz" class="form-check-label">Czy badanie ma być realizowane na NFZ?</label>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 left-side"><img src="../../../assets/Appointment 2.avif" alt="Appointment 1"/></div>
+
+    <div class="col-md-4 mx-auto">
+      <form [formGroup]="examinationForm" (ngSubmit)="examinationFormSubmit()">
+      <h2>Formularz Rejestracji - Badanie</h2>
+
+      <label for="testType" class="form-label">Rodzaj badania:</label>
+      <select id="testType" class="form-control" formControlName="testType">
+          <option value="bloodTest">Badanie krwi</option>
+          <option value="urineTest">Badanie moczu</option>
+          <option value="xRay">Rentgen</option>
+      </select>
+
+      <label for="preferredDate" class="form-label">Preferowana data badania:</label>
+      <input type="date" class="form-control" id="preferredDate" formControlName="preferredDate">
+
+      <label for="preferredTime" class="form-label">Preferowana godzina badania:</label>
+      <select id="preferredTime" class="form-control" formControlName="preferredTime">
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+          <option value="18:00">18:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+          <option value="20:00">20:00</option>
+      </select>
+
+      <label for="additionalInfo" class="form-label">Dodatkowe informacje:</label>
+      <textarea id="additionalInfo" class="form-control" formControlName="additionalInfo"></textarea>
+
+      <div class="checkbox-wrapper">
+        <input class="form-check-control" type="checkbox" formControlName="nfzTest" id="nfzTest">
+        <label for="nfzTest" class="form-check-label">Czy badanie ma być realizowane na NFZ?</label>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" [disabled]="!examinationForm.valid">Dalej</button>
+      </div>
+      </form>
     </div>
-  
-    <button type="submit" [disabled]="!examinationForm.valid">Dalej</button>
-</form>
+    <div class="col-md-4 right-side"><img src="../../../assets/appointment1.avif" alt="Appointment 1"/></div>
+  </div>
+</div>
