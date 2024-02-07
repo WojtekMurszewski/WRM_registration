@@ -58,7 +58,7 @@ export class ConsentFormComponent {
       this.http.post(url, combinedData, { headers, responseType: 'text' as 'text' }).subscribe(
         (response: any) => {
           this.dataService.resetData();
-          this.router.navigate(['/client-menu']);
+          this.router.navigate(['/finish-form']);
         },
         (error: any) => {
           console.error(error);
