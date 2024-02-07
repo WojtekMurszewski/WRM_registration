@@ -49,10 +49,10 @@ export class LoginComponent {
   login(credentials: { username: string; password: string }, redirectRoute: string, userType: string) {
     let url = '';
   
-    if (this.showClientForm) {
+    if (userType === 'client') {
       url = 'http://localhost:3000/patient-login';
       console.log('Logowanie klienta');
-    } else if (this.showWorkerForm) {
+    } else if (userType === 'employee') {
       url = 'http://localhost:3000/employee-login';
       console.log('Logowanie pracownika');
     }

@@ -25,7 +25,7 @@
         <label for="password" class="form-label">Hasło</label>
         <input type="password" class="form-control" id="password" formControlName="password" placeholder="Wpisz hasło">
 
-          <button type="submit" [disabled]="!clientForm.valid">Zaloguj się</button>
+          <button type="submit" [disabled]="!workerForm.valid">Zaloguj się</button>
       </form>
     </div>
   <button (click)="toggleForm()" class="btn btn-primary change-button">Zamień typ konta</button>
