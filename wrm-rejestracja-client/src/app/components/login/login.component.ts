@@ -48,31 +48,28 @@ export class LoginComponent {
 
   login(credentials: { username: string; password: string }, redirectRoute: string, userType: string) {
     let url = '';
-  
+
     if (userType === 'client') {
       url = 'http://localhost:3000/patient-login';
-      console.log('Logowanie klienta');
     } else if (userType === 'employee') {
       url = 'http://localhost:3000/employee-login';
-      console.log('Logowanie pracownika');
     }
-  
+
     const data = credentials;
-  
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-  
+
     this.http.post(url, data, { headers }).subscribe(
       (response: any) => {
-        console.log(response);
-  
+
         if (userType === 'client') {
           this.authService.clientLogin();
         } else if (userType === 'employee') {
           this.authService.employeeLogin();
         }
-  
+
         if (response == true) {
           this.router.navigate([redirectRoute]);
         }
@@ -82,5 +79,5 @@ export class LoginComponent {
       }
     );
   }
-  
+
 }

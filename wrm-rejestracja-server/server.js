@@ -54,10 +54,13 @@ app.get('/get-all-tests', (req, res) => {
 
 // Pobranie pojedyńczej rejestracji na badanie (na podstawie ID)
 app.get('/get-test', (req, res) => {
+    console.log(req.query.id)
     badania.findOne({ _id: req.query.id }, function (err, doc) {
+        console.log(doc);
         res.send(JSON.stringify(doc, null, 5));
     });
 });
+
 
 
 // Usunięcie rejestracji na badanie (na podstawie ID)
@@ -92,7 +95,9 @@ app.get('/get-all-visits', (req, res) => {
 
 // Pobranie pojedyńczej rejestracji na wizytę (na podstawie ID)
 app.get('/get-visit', (req, res) => {
+    console.log(req.query.id)
     wizyty.findOne({ _id: req.query.id }, function (err, doc) {
+        console.log(doc);
         res.send(JSON.stringify(doc, null, 5));
     });
 });

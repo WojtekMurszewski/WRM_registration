@@ -14,15 +14,15 @@ import { Router, RouterLink } from '@angular/router';
 export class EmployeeVisitListComponent implements OnInit {
     visits: any[] = [];
     selectedVisit: any;
-  
-    private url = 'http://localhost:3000'; 
-  
+
+    private url = 'http://localhost:3000';
+
     constructor(private http: HttpClient, private router: Router) {}
-  
+
     ngOnInit() {
       this.loadData();
     }
-  
+
     loadData() {
       this.http.get<any[]>(`${this.url}/get-all-visits`).subscribe(
         (visits) => {
@@ -37,8 +37,7 @@ export class EmployeeVisitListComponent implements OnInit {
     removeVisit(visitId: string) {
         this.http.post<any>(`${this.url}/remove-visit`, { id: visitId }).subscribe(
           (response) => {
-            console.log('Usunięto wizytę:', response);
-            this.loadData(); 
+            this.loadData();
           },
           (error) => {
             console.error(error);
@@ -47,7 +46,7 @@ export class EmployeeVisitListComponent implements OnInit {
     }
 
     viewVisit(visitId: string) {
-      this.router.navigate(['/visit-view', visitId]); 
+      this.router.navigate(['/visit-view', visitId]);
     }
 
     goBack() {

@@ -13,15 +13,15 @@ import { Router, RouterLink } from '@angular/router';
 
 export class EmployeeTestVisitComponent implements OnInit {
     tests: any[] = [];
-  
-    private url = 'http://localhost:3000'; 
-  
+
+    private url = 'http://localhost:3000';
+
     constructor(private http: HttpClient, private router: Router) {}
-  
+
     ngOnInit() {
       this.loadData();
     }
-  
+
     loadData() {
       this.http.get<any[]>(`${this.url}/get-all-tests`).subscribe(
         (tests) => {
@@ -32,12 +32,11 @@ export class EmployeeTestVisitComponent implements OnInit {
         }
       );
     }
-  
+
     removeTest(testId: string) {
       this.http.post<any>(`${this.url}/remove-test`, { id: testId }).subscribe(
         (response) => {
-          console.log('Usunięto badanie:', response);
-          this.loadData(); 
+          this.loadData();
         },
         (error) => {
           console.error(error);
@@ -46,7 +45,7 @@ export class EmployeeTestVisitComponent implements OnInit {
     }
 
     viewTest(testId: string) {
-      this.router.navigate(['/test-view', testId]); 
+      this.router.navigate(['/test-view', testId]);
     }
 
     goBack() {

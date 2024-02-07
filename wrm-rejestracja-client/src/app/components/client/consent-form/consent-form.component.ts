@@ -57,18 +57,17 @@ export class ConsentFormComponent {
 
       this.http.post(url, combinedData, { headers, responseType: 'text' as 'text' }).subscribe(
         (response: any) => {
-          console.log(response);
           this.dataService.resetData();
           this.router.navigate(['/client-menu']);
         },
         (error: any) => {
           console.error(error);
-        }); 
+        });
     }
   }
 
   goBack() {
       this.router.navigate(['/personal-data-form']);
       this.dataService.consentFormData = {};
-  } 
+  }
 }
