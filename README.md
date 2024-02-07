@@ -1,5 +1,5 @@
 
-# WRM Registration
+# WRM Rejestracja
 
 This application is designed to streamline the process of registering patients for appointments and examinations. It consists of a patient and employee panel. The patient has access to the registration forms. The employee can view lists of registrations and delete selected registrations. He also has a view of the completed form. The programme could be successfully used in a small health centre.
 
@@ -15,7 +15,7 @@ Clone the project
 Go to server directory, install dependencies and run
 
 ```bash
-  cd wrm-registration-server
+  cd wrm-rejestracja-server
   npm install
   node server
 ```
@@ -23,7 +23,7 @@ Go to server directory, install dependencies and run
 Go to client directory, install dependencies and run
 
 ```bash
-  cd wrm-registration-client
+  cd wrm-rejestracja-client
   npm install
   ng serve
 ```
