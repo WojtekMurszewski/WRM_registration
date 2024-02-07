@@ -73,7 +73,9 @@ export class LoginComponent {
           this.authService.employeeLogin();
         }
   
-        this.router.navigate([redirectRoute]);
+        if (response == true) {
+          this.router.navigate([redirectRoute]);
+        }
       },
       (error: any) => {
         console.error(error);
