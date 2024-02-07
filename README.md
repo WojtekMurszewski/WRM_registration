@@ -95,11 +95,3 @@ Go to client directory, install dependencies and run
 - [WojtekMurszewski](https://www.github.com/WojciechMurszewski)
 
 
-## Installation
-
-Install my-project with npm
-
-```bash
-  npm install my-project
-  cd my-project
-```
