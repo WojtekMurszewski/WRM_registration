@@ -15,7 +15,7 @@ Clone the project
 Go to server directory, install dependencies and run
 
 ```bash
-  cd wrm-rejestracja-server
+  cd wrm-rejestracja/wrm-rejestracja-server
   npm install
   node server
 ```
@@ -23,7 +23,7 @@ Go to server directory, install dependencies and run
 Go to client directory, install dependencies and run
 
 ```bash
-  cd wrm-rejestracja-client
+  cd wrm-rejestracja/wrm-rejestracja-client
   npm install
   ng serve
 ```
