@@ -10,13 +10,14 @@ import { EmployeeTestVisitComponent } from './components/employee/employee-test-
 import { EmployeeVisitListComponent } from './components/employee/employee-visit-list/employee-visit-list.component';
 import { VisitViewComponent } from './components/employee/visit-view/visit-view.component';
 import { TestViewComponent } from './components/employee/test-view/test-view.component';
+import { FinishFormComponent } from './components/client/finish-form/finish-form.component';
 import { ClientAuthGuard, EmployeeAuthGuard } from './auth.guard';
 
 
 export const routes: Routes = [
     {path: '', component: LoginComponent},
-    { path: 'client-menu', component: ClientMenuComponent, canActivate: [ClientAuthGuard] },
-    { path: 'employee-menu', component: EmployeeMenuComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'client-menu', component: ClientMenuComponent, canActivate: [ClientAuthGuard] },
+    {path: 'employee-menu', component: EmployeeMenuComponent, canActivate: [EmployeeAuthGuard]},
     {path: 'appointment-form', component: AppointmentFormComponent, canActivate: [ClientAuthGuard]},
     {path: 'personal-data-form', component: PersonalDataFormComponent, canActivate: [ClientAuthGuard]},
     {path: 'consent-form', component: ConsentFormComponent, canActivate: [ClientAuthGuard]},
@@ -24,5 +25,6 @@ export const routes: Routes = [
     {path: 'employee-test-list', component: EmployeeTestVisitComponent, canActivate: [EmployeeAuthGuard]},
     {path: 'employee-visit-list', component: EmployeeVisitListComponent, canActivate: [EmployeeAuthGuard]},
     {path: 'visit-view/:visitId', component: VisitViewComponent, canActivate: [EmployeeAuthGuard]},
-    {path: 'test-view/:visitId', component: TestViewComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'test-view/:testId', component: TestViewComponent, canActivate: [EmployeeAuthGuard]},
+    {path: 'finish-form', component: FinishFormComponent, canActivate: [ClientAuthGuard]},
 ];

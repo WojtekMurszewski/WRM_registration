@@ -13,7 +13,6 @@ import { Router, RouterLink } from '@angular/router';
 
 export class EmployeeVisitListComponent implements OnInit {
     visits: any[] = [];
-    selectedVisit: any;
 
     private url = 'http://localhost:3000';
 
