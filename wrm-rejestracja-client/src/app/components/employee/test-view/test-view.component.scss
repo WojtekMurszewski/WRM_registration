@@ -1,0 +1,18 @@
+button.goBack {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 120px;
+    cursor: pointer;
+    background-color: var(--dark-blue-color);
+    color: var(--white-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      opacity: 0.9;
+    }
+  }

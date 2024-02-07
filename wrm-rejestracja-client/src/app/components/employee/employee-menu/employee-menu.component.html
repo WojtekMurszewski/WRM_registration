@@ -1,18 +1,15 @@
-<div>
-  <button (click)="logout()">Wyloguj się</button>
-</div>
+<button (click)="logout()" class="goBack">Wyloguj się</button>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 mx-auto">
-      <button (click)="toVisitList()">Lista Wizyt</button>
-    </div>
+    <h1>PORTAL PRACOWNIKA</h1>
   </div>
-</div>
-<div class="container">
   <div class="row">
-    <div class="col-md-4 mx-auto">
-      <button (click)="toTestList()">Lista Badań</button>
+    <div class="col-md-6 mx-auto">
+      <button id="left" (click)="toVisitList()">Lista Wizyt</button>
+    </div>
+    <div class="col-md-6 mx-auto">
+      <button id="right" (click)="toTestList()">Lista Badań</button>
     </div>
   </div>
 </div>

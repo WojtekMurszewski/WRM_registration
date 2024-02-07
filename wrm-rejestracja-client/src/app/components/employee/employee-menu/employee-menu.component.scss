@@ -1,0 +1,55 @@
+.container-fluid {
+    height: 100vh;
+    padding-top: 50px;
+    .row {
+      padding-top: 50px;
+      text-align: center;
+  
+      button {
+        width: 200px;
+        height: 200px;
+        margin-left: auto;
+        padding: 10px;
+        background-color: var(--dark-blue-color);
+        color: var(--white-color);
+        border: none;
+        font-weight: bold;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+  
+      #left {
+        float: right;
+        margin-right: 20px;
+      }
+  
+      #right {
+        float: left;
+        margin-left: 20px;
+      }
+    }
+  }
+  
+  button.goBack {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 120px;
+    cursor: pointer;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      opacity: 0.9;
+    }
+  }
