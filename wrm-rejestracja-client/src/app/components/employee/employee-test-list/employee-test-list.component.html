@@ -1,61 +1,39 @@
 <button (click)="goBack()" class="goBack">Wróć</button>
-<div *ngIf="tests.length > 0">
+<div *ngIf="tests.length ">
     <h2>Badania</h2>
-    <table>
+    <table class="table table-striped table-hover table-sm">
       <thead>
         <tr>
-          <th>Podgląd</th>
-          <th>Typ badania</th>
-          <th>Preferowana data</th>
-          <th>Preferowana godzina</th>
-          <th>Dodatkowe informacje</th>
-          <th>Badanie na NFZ</th>
-          <th>Imię (Pacjent)</th>
-          <th>Nazwisko (Pacjent)</th>
-          <th>Email</th>
-          <th>Numer telefonu</th>
-          <th>Miasto</th>
-          <th>Ulica</th>
-          <th>Numer domu</th>
-          <th>Kod pocztowy</th>
-          <th>Rodzaj rejestracji</th>
-          <th>Zgoda na marketing</th>
-          <th>Zgoda na dane osobowe</th>
-          <th>Zgoda na dodatkowe informacje</th>
-          <th>Zgoda na kontakt w nagłych przypadkach</th>
-          <th>Zgoda na udostępnianie danych</th>
-          <th>Akcje</th>
+          <th scope="col">Preferowana data</th>
+          <th scope="col">Preferowana godzina</th>
+          <th scope="col">Typ badania</th>
+          <th scope="col">Badanie na NFZ</th>
+          <th scope="col">Imię (Pacjent)</th>
+          <th scope="col">Nazwisko (Pacjent)</th>
+          <th scope="col">Email</th>
+          <th scope="col">Numer telefonu</th>
+          <th scope="col">Rodzaj rejestracji</th>
+          <th scope="col">Dodatkowe informacje</th>
+          <th scope="col">Akcje</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let test of tests">
-          <td>
-            <button (click)="viewTest(test._id)">Podgląd</button>
-          </td>
-          <td>{{ test.testType.testType }}</td>
           <td>{{ test.testType.preferredDate }}</td>
           <td>{{ test.testType.preferredTime }}</td>
-          <td>{{ test.testType.additionalInfo }}</td>
+          <td>{{ test.testType.testType }}</td>
           <td>{{ test.testType.nfzTest }}</td>
           <td>{{ test.patient.firstName }}</td>
           <td>{{ test.patient.lastName }}</td>
           <td>{{ test.patient.email }}</td>
           <td>{{ test.patient.phoneNumber }}</td>
-          <td>{{ test.patient.city }}</td>
-          <td>{{ test.patient.street }}</td>
-          <td>{{ test.patient.houseNumber }}</td>
-          <td>{{ test.patient.zipcode }}</td>
+          <td>{{ test.testType.additionalInfo }}</td>
           <td>{{ test.consent.registrationType }}</td>
-          <td>{{ test.consent.marketingConsent }}</td>
-          <td>{{ test.consent.personalDataConsent }}</td>
-          <td>{{ test.consent.additionalInfoConsent }}</td>
-          <td>{{ test.consent.emergencyContactConsent }}</td>
-          <td>{{ test.consent.dataSharingConsent }}</td>
           <td>
-            <button (click)="removeTest(test._id)">Usuń</button>
+            <button class="details" (click)="viewTest(test._id)">Podgląd</button>
+            <button class="remove" (click)="removeTest(test._id)">Usuń</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  
